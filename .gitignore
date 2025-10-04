@@ -1,0 +1,53 @@
+# === Python cache & environment ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === MongoDB dump & temp ===
+*.bson
+*.json~
+dump/
+backup/
+
+# === Data files (keep sample_data.json only) ===
+data/*.csv
+data/*.xlsx
+data/*.zip
+data/*.bak
+!data/sample_data.json
+!data/schema_validation.json
+
+# === IDE / Editor settings ===
+.vscode/
+.idea/
+*.swp
+
+# === Notebook outputs (optional cleanup) ===
+notebooks/.ipynb_checkpoints/
+notebooks/*_checkpoint.ipynb
+
+# === Environment & Config files ===
+.env
+*.env
+config.json
+credentials.json
+
+# === Compiled presentations or reports ===
+docs/*.pdf
+docs/*.zip

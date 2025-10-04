@@ -1,13 +1,12 @@
 ## Part 1: Database Setup and Data Modeling
 # Task 1.1: Create Database and Collections
 
-from asyncio import Task
-from narwhals import Schema
 from pymongo import MongoClient
 from datetime import datetime
 import pandas as pd
 import json
 from bson import json_util
+from bson.son import SON
 
 # Establish connection to local MongoDB
 client = MongoClient('mongodb://localhost:27017/')
@@ -18,102 +17,116 @@ print("Available databases:", client.list_database_names())
 
 # Create collections with schema validation rules using JSON Schema
 # Users collection validation
-db.create_collection("users", validator={
-    "$jsonSchema": {
-        "bsonType": "object",
-        "required": ["email", "firstName", "lastName", "role"],
-        "properties": {
-            "userId": {"bsonType": "string"},
-            "email": {"bsonType": "string", "pattern": "^.+@.+$"},
-            "firstName": {"bsonType": "string"},
-            "lastName": {"bsonType": "string"},
-            "role": {"enum": ["student", "instructor"]},
-            "dateJoined": {"bsonType": "date"},
-            "profile": {
-                "bsonType": "object",
-                "properties": {
-                    "bio": {"bsonType": "string"},
-                    "avatar": {"bsonType": "string"},
-                    "skills": {"bsonType": "array", "items": {"bsonType": "string"}}
-                }
-            },
-            "isActive": {"bsonType": "bool"}
+if "users" not in db.list_collection_names():
+    db.create_collection("users", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["email", "firstName", "lastName", "role"],
+            "properties": {
+                "userId": {"bsonType": "string"},
+                "email": {"bsonType": "string", "pattern": "^.+@.+$"},
+                "firstName": {"bsonType": "string"},
+                "lastName": {"bsonType": "string"},
+                "role": {"enum": ["student", "instructor"]},
+                "dateJoined": {"bsonType": "date"},
+                "profile": {
+                    "bsonType": "object",
+                    "properties": {
+                        "bio": {"bsonType": "string"},
+                        "avatar": {"bsonType": "string"},
+                        "skills": {"bsonType": "array", "items": {"bsonType": "string"}}
+                    }
+                },
+                "isActive": {"bsonType": "bool"}
+            }
         }
-    }
-})
+    })
 
 # Courses collection validation
-db.create_collection("courses", validator={
-    "$jsonSchema": {
-        "bsonType": "object",
-        "required": ["title", "instructorId"],
-        "properties": {
-            "courseId": {"bsonType": "string"},
-            "title": {"bsonType": "string"},
-            "description": {"bsonType": "string"},
-            "instructorId": {"bsonType": "string"},
-            "category": {"bsonType": "string"},
-            "level": {"enum": ["beginner", "intermediate", "advanced"]},
-            "duration": {"bsonType": "double"},
-            "price": {"bsonType": "double"},
-            "tags": {"bsonType": "array", "items": {"bsonType": "string"}},
-            "createdAt": {"bsonType": "date"},
-            "updatedAt": {"bsonType": "date"},
-            "isPublished": {"bsonType": "bool"}
+if "courses" not in db.list_collection_names():
+    db.create_collection("courses", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["title", "instructorId"],
+            "properties": {
+                "courseId": {"bsonType": "string"},
+                "title": {"bsonType": "string"},
+                "description": {"bsonType": "string"},
+                "instructorId": {"bsonType": "string"},
+                "category": {"bsonType": "string"},
+                "level": {"enum": ["beginner", "intermediate", "advanced"]},
+                "duration": {"bsonType": "double"},
+                "price": {"bsonType": "double"},
+                "tags": {"bsonType": "array", "items": {"bsonType": "string"}},
+                "createdAt": {"bsonType": "date"},
+                "updatedAt": {"bsonType": "date"},
+                "isPublished": {"bsonType": "bool"}
+            }
         }
-    }
-})
+    })
 
 # Other collections (enrollments, lessons, assignments, submissions) - similar validation
-db.create_collection("enrollments")
-db.create_collection("lessons", validator={
-    "$jsonSchema": {
-        "bsonType": "object",
-        "required": ["title", "courseId"],
-        "properties": {
-            "lessonId": {"bsonType": "string"},
-            "title": {"bsonType": "string"},
-            "courseId": {"bsonType": "string"},
-            "content": {"bsonType": "string"},
-            "order": {"bsonType": "int"},
-            "duration": {"bsonType": "double"}
+if "enrollments" not in db.list_collection_names():
+    db.create_collection("enrollments")
+if "lessons" not in db.list_collection_names():
+    db.create_collection("lessons", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["title", "courseId"],
+            "properties": {
+                "lessonId": {"bsonType": "string"},
+                "title": {"bsonType": "string"},
+                "courseId": {"bsonType": "string"},
+                "content": {"bsonType": "string"},
+                "order": {"bsonType": "int"},
+                "duration": {"bsonType": "double"}
+            }
         }
-    }
-})
-db.create_collection("assignments", validator={
-    "$jsonSchema": {
-        "bsonType": "object",
-        "required": ["title", "courseId"],
-        "properties": {
-            "assignmentId": {"bsonType": "string"},
-            "title": {"bsonType": "string"},
-            "courseId": {"bsonType": "string"},
-            "dueDate": {"bsonType": "date"},
-            "maxScore": {"bsonType": "double"}
+    })
+if "assignments" not in db.list_collection_names():
+    db.create_collection("assignments", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["title", "courseId"],
+            "properties": {
+                "assignmentId": {"bsonType": "string"},
+                "title": {"bsonType": "string"},
+                "courseId": {"bsonType": "string"},
+                "dueDate": {"bsonType": "date"},
+                "maxScore": {"bsonType": "double"}
+            }
         }
-    }
-})
-db.create_collection("submissions", validator={
-    "$jsonSchema": {
-        "bsonType": "object",
-        "required": ["studentId", "assignmentId"],
-        "properties": {
-            "submissionId": {"bsonType": "string"},
-            "studentId": {"bsonType": "string"},
-            "assignmentId": {"bsonType": "string"},
-            "submissionDate": {"bsonType": "date"},
-            "fileUrl": {"bsonType": "string"},
-            "grade": {"bsonType": "double"},
-            "feedback": {"bsonType": "string"}
+    })
+if "submissions" not in db.list_collection_names():
+    db.create_collection("submissions", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["studentId", "assignmentId"],
+            "properties": {
+                "submissionId": {"bsonType": "string"},
+                "studentId": {"bsonType": "string"},
+                "assignmentId": {"bsonType": "string"},
+                "submissionDate": {"bsonType": "date"},
+                "fileUrl": {"bsonType": "string"},
+                "grade": {"bsonType": "double"},
+                "feedback": {"bsonType": "string"}
+            }
         }
-    }
-})
+    })
 
 print("Collections created with validation:", db.list_collection_names())
 
 
 
 ## Part 2 — Data Population
+# === 2. reset collections ===
+# delete old data to avoid duplicates
+for coll in db.list_collection_names():
+    db[coll].delete_many({})
+
+# === 3. Define a fixed timestamp for consistency ===
+fixed_now = datetime(2025, 1, 1, 12, 0, 0)
+
 # Generate and insert sample data (20 users, 8 courses, etc.)
 # Users: 15 students, 5 instructors
 users_data = [
@@ -214,21 +227,23 @@ submissions_data = [
 ]
 db.submissions.insert_many(submissions_data)
 
-# Export sample data to JSON
-import os
-
-os.makedirs('data', exist_ok=True)
+# Export a sample of the data to JSON for verification
+os.makedirs("C:\\Users\\Cheikh\\mongodb-eduhub-project\\data", exist_ok=True)
 
 sample_data = {
-    "users": list(db.users.find({}, {"_id": 0}).limit(5)),  # Sample 5 for brevity
-    "courses": list(db.courses.find({}, {"_id": 0})),
-    # ... add others
+    "users": list(db.users.find({}, {"_id": 0}).limit(5)),
+    "courses": list(db.courses.find({}, {"_id": 0}))
 }
-with open('C:\\Users\\Cheikh\\mongodb-eduhub-project\\data\\sample_data.json', 'w') as f:                         # C:\Users\Cheikh\mongodb-eduhub-project\data\sample_data.json
+
+with open("C:\\Users\\Cheikh\\mongodb-eduhub-project\\data\\sample_data.json", "w") as f:
     json.dump(sample_data, f, default=json_util.default, indent=2)
 
-print("Sample data inserted. Counts:", {coll: db[coll].count_documents({}) for coll in db.list_collection_names()})
+print(" Sample data inserted. Counts:", {coll: db[coll].count_documents({}) for coll in db.list_collection_names()})
 
+user_counts = db.users.aggregate([
+    {"$group": {"_id": "$role", "count": {"$sum": 1}}}
+])
+print(" User counts (instructors vs students):", list(user_counts))
 
 
 ## Part 3: Basic CRUD Operations
