@@ -1,0 +1,650 @@
+{
+  "users": [
+    {
+      "userId": "u_instructor_1",
+      "email": "instructor1@eduhub.test",
+      "firstName": "Instr1",
+      "lastName": "Lastname",
+      "role": "instructor",
+      "dateJoined": {
+        "$date": "2025-04-20T04:15:48.690Z"
+      },
+      "profile": {
+        "bio": "Instructor 1 bio",
+        "skills": [
+          "teaching",
+          "subject1"
+        ]
+      },
+      "isActive": true
+    },
+    {
+      "userId": "u_instructor_2",
+      "email": "instructor2@eduhub.test",
+      "firstName": "Instr2",
+      "lastName": "Lastname",
+      "role": "instructor",
+      "dateJoined": {
+        "$date": "2023-11-04T04:15:48.699Z"
+      },
+      "profile": {
+        "bio": "Instructor 2 bio",
+        "skills": [
+          "teaching",
+          "subject2"
+        ]
+      },
+      "isActive": true
+    },
+    {
+      "userId": "u_instructor_3",
+      "email": "instructor3@eduhub.test",
+      "firstName": "Instr3",
+      "lastName": "Lastname",
+      "role": "instructor",
+      "dateJoined": {
+        "$date": "2024-02-07T04:15:48.701Z"
+      },
+      "profile": {
+        "bio": "Instructor 3 bio",
+        "skills": [
+          "teaching",
+          "subject3"
+        ]
+      },
+      "isActive": true
+    },
+    {
+      "userId": "u_instructor_4",
+      "email": "instructor4@eduhub.test",
+      "firstName": "Instr4",
+      "lastName": "Lastname",
+      "role": "instructor",
+      "dateJoined": {
+        "$date": "2024-11-17T04:15:48.703Z"
+      },
+      "profile": {
+        "bio": "Instructor 4 bio",
+        "skills": [
+          "teaching",
+          "subject4"
+        ]
+      },
+      "isActive": true
+    },
+    {
+      "userId": "u_instructor_5",
+      "email": "instructor5@eduhub.test",
+      "firstName": "Instr5",
+      "lastName": "Lastname",
+      "role": "instructor",
+      "dateJoined": {
+        "$date": "2024-10-17T04:15:48.704Z"
+      },
+      "profile": {
+        "bio": "Instructor 5 bio",
+        "skills": [
+          "teaching",
+          "subject5"
+        ]
+      },
+      "isActive": true
+    }
+  ],
+  "courses": [
+    {
+      "courseId": "c_100",
+      "title": "Data Science Course 1",
+      "description": "Learn Data Science from scratch",
+      "instructorId": "u_instructor_1",
+      "category": "Data Science",
+      "level": "advanced",
+      "duration": 42.1,
+      "price": 144.9,
+      "tags": [
+        "data science",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-06-21T04:15:48.722Z"
+      },
+      "updatedAt": {
+        "$date": "2025-08-24T04:15:48.722Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c_101",
+      "title": "Web Dev Course 2",
+      "description": "Learn Web Dev from scratch",
+      "instructorId": "u_instructor_3",
+      "category": "Web Dev",
+      "level": "advanced",
+      "duration": 48.7,
+      "price": 188.05,
+      "tags": [
+        "web dev",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-06-28T04:15:48.724Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-01T04:15:48.724Z"
+      },
+      "isPublished": false
+    },
+    {
+      "courseId": "c_102",
+      "title": "Business Course 3",
+      "description": "Learn Business from scratch",
+      "instructorId": "u_instructor_3",
+      "category": "Business",
+      "level": "intermediate",
+      "duration": 24.5,
+      "price": 93.14,
+      "tags": [
+        "business",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-04-16T04:15:48.724Z"
+      },
+      "updatedAt": {
+        "$date": "2025-07-23T04:15:48.724Z"
+      },
+      "isPublished": false
+    },
+    {
+      "courseId": "c_103",
+      "title": "Design Course 4",
+      "description": "Learn Design from scratch",
+      "instructorId": "u_instructor_1",
+      "category": "Design",
+      "level": "beginner",
+      "duration": 16.3,
+      "price": 176.34,
+      "tags": [
+        "design",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-07-19T04:15:48.726Z"
+      },
+      "updatedAt": {
+        "$date": "2025-07-07T04:15:48.726Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c_104",
+      "title": "AI Course 5",
+      "description": "Learn AI from scratch",
+      "instructorId": "u_instructor_3",
+      "category": "AI",
+      "level": "intermediate",
+      "duration": 26.3,
+      "price": 36.19,
+      "tags": [
+        "ai",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-03-20T04:15:48.727Z"
+      },
+      "updatedAt": {
+        "$date": "2025-08-27T04:15:48.727Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c_105",
+      "title": "Blockchain Course 6",
+      "description": "Learn Blockchain from scratch",
+      "instructorId": "u_instructor_1",
+      "category": "Blockchain",
+      "level": "advanced",
+      "duration": 48.9,
+      "price": 7.51,
+      "tags": [
+        "blockchain",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-06-10T04:15:48.727Z"
+      },
+      "updatedAt": {
+        "$date": "2025-09-18T04:15:48.727Z"
+      },
+      "isPublished": false
+    },
+    {
+      "courseId": "c_106",
+      "title": "Math Course 7",
+      "description": "Learn Math from scratch",
+      "instructorId": "u_instructor_2",
+      "category": "Math",
+      "level": "intermediate",
+      "duration": 20.3,
+      "price": 157.49,
+      "tags": [
+        "math",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-05-04T04:15:48.729Z"
+      },
+      "updatedAt": {
+        "$date": "2025-09-24T04:15:48.729Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c_107",
+      "title": "Language Course 8",
+      "description": "Learn Language from scratch",
+      "instructorId": "u_instructor_5",
+      "category": "Language",
+      "level": "advanced",
+      "duration": 5.1,
+      "price": 50.23,
+      "tags": [
+        "language",
+        "course"
+      ],
+      "createdAt": {
+        "$date": "2025-07-15T04:15:48.730Z"
+      },
+      "updatedAt": {
+        "$date": "2025-08-11T04:15:48.730Z"
+      },
+      "isPublished": false
+    },
+    {
+      "courseId": "c001",
+      "title": "Intro to Python",
+      "description": "Basics of Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "beginner",
+      "duration": 10.5,
+      "price": 49.99,
+      "tags": [
+        "python",
+        "coding"
+      ],
+      "createdAt": {
+        "$date": "2025-01-10T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:26:48.149Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c001",
+      "title": "Intro to Python",
+      "description": "Basics of Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "beginner",
+      "duration": 10.5,
+      "price": 49.99,
+      "tags": [
+        "python",
+        "coding"
+      ],
+      "createdAt": {
+        "$date": "2025-01-10T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:27:45.571Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c001",
+      "title": "Intro to Python",
+      "description": "Basics of Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "beginner",
+      "duration": 10.5,
+      "price": 49.99,
+      "tags": [
+        "python",
+        "coding"
+      ],
+      "createdAt": {
+        "$date": "2025-01-10T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c002",
+      "title": "Data Science with Python",
+      "description": "Learn Data Science",
+      "instructorId": "inst002",
+      "category": "Data Science",
+      "level": "intermediate",
+      "duration": 15.0,
+      "price": 79.99,
+      "tags": [
+        "data science",
+        "python"
+      ],
+      "createdAt": {
+        "$date": "2025-01-12T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c003",
+      "title": "Web Development Basics",
+      "description": "HTML, CSS, JS",
+      "instructorId": "inst003",
+      "category": "Web Development",
+      "level": "beginner",
+      "duration": 12.0,
+      "price": 59.99,
+      "tags": [
+        "web",
+        "html",
+        "css",
+        "javascript"
+      ],
+      "createdAt": {
+        "$date": "2025-01-14T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c004",
+      "title": "Advanced Python",
+      "description": "Deep dive into Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "advanced",
+      "duration": 20.0,
+      "price": 99.99,
+      "tags": [
+        "python",
+        "advanced"
+      ],
+      "createdAt": {
+        "$date": "2025-01-16T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c005",
+      "title": "Machine Learning",
+      "description": "Intro to ML",
+      "instructorId": "inst002",
+      "category": "Data Science",
+      "level": "advanced",
+      "duration": 18.0,
+      "price": 89.99,
+      "tags": [
+        "machine learning",
+        "python"
+      ],
+      "createdAt": {
+        "$date": "2025-01-18T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c006",
+      "title": "Frontend Development",
+      "description": "React and Vue",
+      "instructorId": "inst003",
+      "category": "Web Development",
+      "level": "intermediate",
+      "duration": 14.0,
+      "price": 69.99,
+      "tags": [
+        "react",
+        "vue",
+        "javascript"
+      ],
+      "createdAt": {
+        "$date": "2025-01-20T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c007",
+      "title": "Cybersecurity Fundamentals",
+      "description": "Basics of Cybersecurity",
+      "instructorId": "inst004",
+      "category": "Cybersecurity",
+      "level": "beginner",
+      "duration": 11.0,
+      "price": 54.99,
+      "tags": [
+        "cybersecurity",
+        "network"
+      ],
+      "createdAt": {
+        "$date": "2025-01-22T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c008",
+      "title": "Cloud Computing 101",
+      "description": "Intro to Cloud",
+      "instructorId": "inst005",
+      "category": "Cloud Computing",
+      "level": "beginner",
+      "duration": 13.0,
+      "price": 64.99,
+      "tags": [
+        "cloud",
+        "aws",
+        "azure"
+      ],
+      "createdAt": {
+        "$date": "2025-01-24T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:48:31.333Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c001",
+      "title": "Intro to Python",
+      "description": "Basics of Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "beginner",
+      "duration": 10.5,
+      "price": 49.99,
+      "tags": [
+        "python",
+        "coding"
+      ],
+      "createdAt": {
+        "$date": "2025-01-10T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c002",
+      "title": "Data Science with Python",
+      "description": "Learn Data Science",
+      "instructorId": "inst002",
+      "category": "Data Science",
+      "level": "intermediate",
+      "duration": 15.0,
+      "price": 79.99,
+      "tags": [
+        "data science",
+        "python"
+      ],
+      "createdAt": {
+        "$date": "2025-01-12T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c003",
+      "title": "Web Development Basics",
+      "description": "HTML, CSS, JS",
+      "instructorId": "inst003",
+      "category": "Web Development",
+      "level": "beginner",
+      "duration": 12.0,
+      "price": 59.99,
+      "tags": [
+        "web",
+        "html",
+        "css",
+        "javascript"
+      ],
+      "createdAt": {
+        "$date": "2025-01-14T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c004",
+      "title": "Advanced Python",
+      "description": "Deep dive into Python",
+      "instructorId": "inst001",
+      "category": "Programming",
+      "level": "advanced",
+      "duration": 20.0,
+      "price": 99.99,
+      "tags": [
+        "python",
+        "advanced"
+      ],
+      "createdAt": {
+        "$date": "2025-01-16T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c005",
+      "title": "Machine Learning",
+      "description": "Intro to ML",
+      "instructorId": "inst002",
+      "category": "Data Science",
+      "level": "advanced",
+      "duration": 18.0,
+      "price": 89.99,
+      "tags": [
+        "machine learning",
+        "python"
+      ],
+      "createdAt": {
+        "$date": "2025-01-18T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c006",
+      "title": "Frontend Development",
+      "description": "React and Vue",
+      "instructorId": "inst003",
+      "category": "Web Development",
+      "level": "intermediate",
+      "duration": 14.0,
+      "price": 69.99,
+      "tags": [
+        "react",
+        "vue",
+        "javascript"
+      ],
+      "createdAt": {
+        "$date": "2025-01-20T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c007",
+      "title": "Cybersecurity Fundamentals",
+      "description": "Basics of Cybersecurity",
+      "instructorId": "inst004",
+      "category": "Cybersecurity",
+      "level": "beginner",
+      "duration": 11.0,
+      "price": 54.99,
+      "tags": [
+        "cybersecurity",
+        "network"
+      ],
+      "createdAt": {
+        "$date": "2025-01-22T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    },
+    {
+      "courseId": "c008",
+      "title": "Cloud Computing 101",
+      "description": "Intro to Cloud",
+      "instructorId": "inst005",
+      "category": "Cloud Computing",
+      "level": "beginner",
+      "duration": 13.0,
+      "price": 64.99,
+      "tags": [
+        "cloud",
+        "aws",
+        "azure"
+      ],
+      "createdAt": {
+        "$date": "2025-01-24T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2025-10-04T04:49:18.636Z"
+      },
+      "isPublished": true
+    }
+  ]
+}
