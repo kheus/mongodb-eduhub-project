@@ -64,7 +64,7 @@ mongodb-eduhub-project/
 
 ### 2️⃣ Clone the Repository
 ```bash
-git clone [https://github.com/kheus/mongodb-eduhub-project.git]
+git clone https://github.com/kheus/mongodb-eduhub-project.git
 cd mongodb-eduhub-project
 ```
 
