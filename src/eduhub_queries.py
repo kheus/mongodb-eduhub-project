@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from datetime import datetime
 import pandas as pd
 import json
+import os
 from bson import json_util
 from bson.son import SON
 
