@@ -205,9 +205,4 @@ Special thanks to the course instructors and reviewers for their guidance on Mon
 
 ---
 
-## 📬 Contact
-
-**Cheikh Bou Mohamed Kante**  
-Environmental Economist & Data Engineering Student  
-📧 kantecheikh4@gmail.com  
-🌐 [GitHub](https://github.com/<your-username>)
+**🔗 Repository:** [mongodb-eduhub-project](https://github.com/<your-username>/mongodb-eduhub-project)
