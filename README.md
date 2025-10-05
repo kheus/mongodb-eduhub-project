@@ -209,5 +209,5 @@ Special thanks to the course instructors and reviewers for their guidance on Mon
 
 **Cheikh Bou Mohamed Kante**  
 Environmental Economist & Data Engineering Student  
-📧 cheikh.kante@example.com  
+📧 kantecheikh4@gmail.com  
 🌐 [GitHub](https://github.com/<your-username>)
