@@ -183,8 +183,8 @@ See the [LICENSE](LICENSE) file for full details.
 
 **Example submission:**
 ```
-Repository URL: https://github.com/<your-username>/mongodb-eduhub-project
-Backup ZIP: Kante_Cheikh_MongoDB_Project.zip
+Repository URL: (https://github.com/kheus/mongodb-eduhub-project.git)
+Backup ZIP: Kante_Cheikh_Bou_Mohamed_MongoDB_Project.zip
 ```
 
 ---
