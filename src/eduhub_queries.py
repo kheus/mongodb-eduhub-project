@@ -458,25 +458,65 @@ print(f"Optimized query time: {end - start:.4f}s, Docs examined: {opt_query['exe
 ## Part 6: Data Validation and Error Handling
 # Task 6.1 & 6.2: Schema Validation and Error Handling
 # Test validation: Invalid role (should fail)
-try:
-    db.users.insert_one({"userId": "invalid", "email": "test@invalid.com", "firstName": "Test", "lastName": "User", "role": "admin"})  # Invalid enum
-except Exception as e:
-    print("Validation error:", str(e))  # Expected: Enum constraint violation
+from datetime import datetime
+from pymongo.errors import DuplicateKeyError, WriteError
 
-# Test duplicate email
-try:
-    db.users.insert_one({"userId": "dup001", "email": "student1@example.com", "firstName": "Dup", "lastName": "User", "role": "student", "dateJoined": datetime.now(), "profile": {}, "isActive": True})
-except Exception as e:
-    print("Duplicate error:", str(e))  # Expected: E11000 duplicate key
+print("\n--- Validation Testing ---")
 
-# Invalid type: Non-numeric price
+# 1️⃣ Invalid role (enum)
 try:
-    db.courses.insert_one({"courseId": "c_invalid", "title": "Invalid", "instructorId": "inst001", "price": "not_a_number"})
+    db.users.insert_one({
+        "userId": "invalid",
+        "email": "test@invalid.com",
+        "firstName": "Test",
+        "lastName": "User",
+        "role": "admin"  # Not allowed per schema
+    })
+except WriteError as e:
+    print("✅ Enum validation passed (caught invalid role):", e.details['errInfo']['details'])
 except Exception as e:
-    print("Type error:", str(e))
+    print("❌ Unexpected error during role test:", e)
 
-# Missing required field
+# 2️⃣ Duplicate email
 try:
-    db.users.insert_one({"userId": "missing", "email": "missing@example.com", "role": "student"})  # No firstName
+    db.users.insert_one({
+        "userId": "dup001",
+        "email": "student1@example.com",
+        "firstName": "Dup",
+        "lastName": "User",
+        "role": "student",
+        "dateJoined": datetime.now(),
+        "profile": {},
+        "isActive": True
+    })
+except DuplicateKeyError:
+    print("✅ Duplicate key validation passed (email already exists).")
 except Exception as e:
-    print("Required field error:", str(e))
+    print("❌ Unexpected error during duplicate test:", e)
+
+# 3️⃣ Invalid type (price should be a number)
+try:
+    db.courses.insert_one({
+        "courseId": "c_invalid",
+        "title": "Invalid",
+        "instructorId": "inst001",
+        "price": "not_a_number"  # Wrong type
+    })
+except WriteError as e:
+    print("✅ Type validation passed (caught non-numeric price):", e.details['errInfo']['details'])
+except Exception as e:
+    print("❌ Unexpected error during type test:", e)
+
+# 4️⃣ Missing required fields
+try:
+    db.users.insert_one({
+        "userId": "missing",
+        "email": "missing@example.com",
+        "role": "student"  # Missing firstName and lastName
+    })
+except WriteError as e:
+    print("✅ Required field validation passed (missing fields detected):", e.details['errInfo']['details'])
+except Exception as e:
+    print("❌ Unexpected error during required field test:", e)
+
+print("\n--- Validation Testing Complete ---")
